@@ -78,7 +78,8 @@ def update(event, Bucket, Lambda):
     dir_size = run(["du", "-sh", "/tmp/python"], capture_output=True, text=True)
     dir_size = dir_size.stdout.split()[0]
     dir_size = dir_size.split("M")[0]
-    if int(dir_size) >= 250:
+    dir_size = dir_size.split("K")[0]
+    if float(dir_size) >= 250:
         return (
             "Layer size is over limit, please consider removing unnecessary libraries"
         )
