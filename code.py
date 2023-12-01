@@ -181,7 +181,7 @@ def create_new(event, Bucket, Lambda):
     dir_size = dir_size.stdout.split()[0]
     dir_size = dir_size.split("M")[0]
     dir_size = dir_size.split("K")[0]
-    if int(dir_size) >= 250:
+    if float(dir_size) >= 250:
         return (
             "Layer size is over limit, please consider removing unnecessary libraries"
         )
